@@ -49,7 +49,7 @@ require (
 	github.com/onsi/gomega v1.17.0
 	github.com/opencontainers/image-spec v1.0.2 // indirect
 	github.com/opencontainers/runc v1.0.3 // indirect
-	github.com/openkruise/kruise-api v0.9.0
+	github.com/openkruise/kruise-api v1.0.0-beta.0
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.11.0
 	github.com/sirupsen/logrus v1.8.1
