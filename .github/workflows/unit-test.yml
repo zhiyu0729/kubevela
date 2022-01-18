@@ -3,13 +3,11 @@ name: Unit-Test
 on:
   push:
     branches:
-      - master
-      - release-*
+      - kubernetes-1.22
   workflow_dispatch: {}
   pull_request:
     branches:
-      - master
-      - release-*
+      - kubernetes-1.22
 
 env:
   # Common versions
@@ -71,7 +69,7 @@ jobs:
         with:
           version: 3.1.0
           kubebuilderOnly: false
-          kubernetesVersion: v1.21.2
+          kubernetesVersion: 1.22.5
       
       - name: Run Make test
         run: make test

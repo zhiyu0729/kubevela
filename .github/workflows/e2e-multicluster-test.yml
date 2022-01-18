@@ -3,19 +3,18 @@ name: E2E MultiCluster Test
 on:
   push:
     branches:
-      - master
-      - release-*
+      - kubernetes-1.22
   workflow_dispatch: {}
   pull_request:
     branches:
-      - master
-      - release-*
+      - kubernetes-1.22
 
 env:
   # Common versions
   GO_VERSION: '1.16'
   GOLANGCI_VERSION: 'v1.38'
-  KIND_VERSION: 'v0.7.0'
+  KIND_VERSION: 'v0.11.1'
+  KINDEST_VERSION: 'v1.22.0@sha256:b8bda84bb3a190e6e028b1760d277454a72267a5454b57db34437c34a588d047'
 
 jobs:
 
@@ -60,7 +59,7 @@ jobs:
       - name: Setup Kind Cluster (Worker)
         run: |
           kind delete cluster --name worker
-          kind create cluster --image kindest/node:v1.18.15@sha256:5c1b980c4d0e0e8e7eb9f36f7df525d079a96169c8a8f20d8bd108c0d0889cc4 --name worker
+          kind create cluster --image kindest/node:${{ env.KINDEST_VERSION }} --name worker
           kubectl version
           kubectl cluster-info
           kind get kubeconfig --name worker --internal > /tmp/worker.kubeconfig
@@ -69,7 +68,7 @@ jobs:
       - name: Setup Kind Cluster (Hub)
         run: |
           kind delete cluster
-          kind create cluster --image kindest/node:v1.18.15@sha256:5c1b980c4d0e0e8e7eb9f36f7df525d079a96169c8a8f20d8bd108c0d0889cc4
+          kind create cluster --image kindest/node:${{ env.KINDEST_VERSION }}
           kubectl version
           kubectl cluster-info
 
