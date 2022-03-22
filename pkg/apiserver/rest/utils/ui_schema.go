@@ -29,7 +29,7 @@ type UIParameter struct {
 	Sort        uint      `json:"sort"`
 	Label       string    `json:"label"`
 	Description string    `json:"description"`
-	Validate    *Validate `json:"validate,omitempty"`
+	Validate    *Validate `json:"validate,omitempty" x-go-name:"ParamValidate"`
 	JSONKey     string    `json:"jsonKey"`
 	UIType      string    `json:"uiType"`
 	Style       *Style    `json:"style,omitempty"`

@@ -70,9 +70,9 @@ type Meta struct {
 // DeployTo defines where the addon to deploy to
 type DeployTo struct {
 	// This field keep the compatible for older case
-	LegacyRuntimeCluster bool `json:"runtime_cluster"`
+	LegacyRuntimeCluster bool `json:"runtime_cluster" x-go-name:"LegacyRuntimeCluster"`
 	DisableControlPlane  bool `json:"disableControlPlane"`
-	RuntimeCluster       bool `json:"runtimeCluster"`
+	RuntimeCluster       bool `json:"runtimeCluster" x-go-name:"RuntimeCluster"`
 }
 
 // Dependency defines the other addons it depends on
