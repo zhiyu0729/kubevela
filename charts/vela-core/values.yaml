@@ -210,3 +210,6 @@ admissionWebhooks:
 kubeClient:
   qps: 50
   burst: 100
+
+## @param userImpersonation userImpersonation
+userImpersonation: false

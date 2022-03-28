@@ -147,6 +147,7 @@ func main() {
 	flag.IntVar(&workflow.MaxWorkflowWaitBackoffTime, "max-workflow-wait-backoff-time", 60, "Set the max workflow wait backoff time, default is 60")
 	flag.IntVar(&workflow.MaxWorkflowFailedBackoffTime, "max-workflow-failed-backoff-time", 300, "Set the max workflow wait backoff time, default is 300")
 	flag.IntVar(&custom.MaxWorkflowStepErrorRetryTimes, "max-workflow-step-error-retry-times", 10, "Set the max workflow step error retry times, default is 10")
+	flag.BoolVar(&controllerArgs.UserImpersonation, "user-impersonation", false, "Act as client user through impersonation headers in kubernetes, disabled by default.")
 
 	flag.Parse()
 	// setup logging

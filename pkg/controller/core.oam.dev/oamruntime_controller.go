@@ -86,4 +86,7 @@ type Args struct {
 
 	// IgnoreAppWithoutControllerRequirement indicates that application controller will not process the app without 'app.oam.dev/controller-version-require' annotation.
 	IgnoreAppWithoutControllerRequirement bool
+
+	// UserImpersonation is a webhook which enable uesr info inject to application annotations.
+	UserImpersonation bool
 }

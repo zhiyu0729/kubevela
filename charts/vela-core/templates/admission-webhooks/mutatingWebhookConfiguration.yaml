@@ -146,5 +146,28 @@ webhooks:
           - UPDATE
         resources:
           - componentdefinitions
+  - clientConfig:
+      caBundle: Cg==
+      service:
+        name: {{ template "kubevela.name" . }}-webhook
+        namespace: {{ .Release.Namespace }}
+        path: /mutating-core-oam-dev-v1beta1-applications
+    failurePolicy: Fail
+    name: mutating.core.oam-dev.v1beta1.applications
+    sideEffects: None
+    admissionReviewVersions:
+      - v1beta1
+      - v1
+    rules:
+      - apiGroups:
+          - core.oam.dev
+        apiVersions:
+          - v1beta1
+        operations:
+          - CREATE
+          - UPDATE
+          - DELETE
+        resources:
+          - applications
 
 {{- end -}}

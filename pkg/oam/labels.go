@@ -190,4 +190,13 @@ const (
 	// AnnotationServiceAccountName indicates the name of the ServiceAccount to use to apply Components and run Workflow.
 	// ServiceAccount will be used in the local cluster only.
 	AnnotationServiceAccountName = "app.oam.dev/service-account-name"
+
+	// AnnotationUserInfoName act as another user to apply Components and run Workflow.
+	AnnotationUserInfoName = "app.oam.dev/impersonation-name"
+
+	// AnnotationUserInfoName act as another user's group to apply Components and run Workflow.
+	AnnotationUserInfoGroup = "app.oam.dev/impersonation-group"
+
+	// AnnotationUserInfoName act as another user's extra info to apply Components and run Workflow.
+	AnnotationUserInfoExtra = "app.oam.dev/impersonation-extra"
 )
